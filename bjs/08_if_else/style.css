@@ -1,4 +1,40 @@
 .game-card {
     height: 100vh;
     font-family: 'Open Sans', monospace;
+
+}
+
+.card {
+    box-shadow: 15px 10px 10px black;
+}
+
+body {
+    background-image: url(./assets/images/585928695.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.m-0 {
+    font-size: medium;
+}
+
+#btnOver {
+    background-color: rgb(205, 77, 77);
+}
+
+#btnOver:hover {
+    transform: translateY(-5px);
+}
+
+
+#btnLess {
+    background-color: rgb(76, 76, 199);
+}
+
+#btnLess:hover {
+    transform: translateY(5px);
+}
+
+#btnEqual:hover {
+    background-color: aqua;
 }
