@@ -50,21 +50,6 @@ const personGenerator = {
             "id_10": "Мария"
         }
     }`,
-  nameFpatronymic: `{
-      "count": 9,
-      "list": {     
-          "id_1": "Александр",
-          "id_2": "Петр",
-          "id_3": "Иван",
-          "id_4": "Егор",
-          "id_5": "Максим",
-          "id_6": "Даниил",
-          "id_7": "Станислав",
-          "id_8": "Владимир",
-          "id_9": "Олег",
-          "id_10": "Денис"
-      }
-  }`,
   professionNameMen: `{
     "count": 9,
     "list": {     
@@ -167,6 +152,7 @@ const personGenerator = {
 
   randomSurname: function () {
     if (this.person.gender === this.GENDER_MALE) {
+      this.firstNameMaleJson;
       return this.randomValue(this.surnameJson);
     } else {
       return this.randomValue(this.surnameJson) + "а";
@@ -178,10 +164,24 @@ const personGenerator = {
   },
 
   fpatronymic: function () {
+    let fpatronymic = this.randomValue(this.firstNameMaleJson);
+    let lastLetter = fpatronymic.slice(-1);
     if (this.person.gender === this.GENDER_MALE) {
-      return this.randomValue(this.nameFpatronymic) + "ович";
+      if (lastLetter == "й") {
+        return fpatronymic.replace("й", "евич");
+      } else if (lastLetter == "а") {
+        return fpatronymic.replace("а", "ич");
+      } else {
+        return fpatronymic + "ович";
+      }
     } else {
-      return this.randomValue(this.nameFpatronymic) + "овна";
+      if (lastLetter == "й") {
+        return fpatronymic.replace("й", "евна");
+      } else if (lastLetter == "а") {
+        return fpatronymic.replace("а", "ична");
+      } else {
+        return fpatronymic + "овна";
+      }
     }
   },
 
